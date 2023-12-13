@@ -10,10 +10,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Set up Node.js 16
+      - name: Set up Node.js 16 and install firebase-tools
         uses: actions/setup-node@v3
         with:
           node-version: '16'
+
+      - run: npm install -g firebase-tools@10.2.0
 
       - run: npm ci && npm run build
 
