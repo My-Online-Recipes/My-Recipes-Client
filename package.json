@@ -22,7 +22,6 @@
     "framer-motion": "^10.12.9",
     "history": "^5.3.0",
     "material-ui-popup-state": "^5.0.9",
-    "myrecipes-httpclient": "^1.0.12",
     "openai": "^4.21.0",
     "react": "^18.2.0",
     "react-aws-s3": "^1.5.0",
@@ -41,9 +40,14 @@
     "superagent": "^8.0.9",
     "web-vitals": "^2.1.4"
   },
+  "overrides": {
+    "react-scripts": {
+      "typescript": "^5"
+    }
+  },
   "scripts": {
-    "start": "--openssl-legacy-provider start",
-    "build": "--openssl-legacy-provider build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
 
