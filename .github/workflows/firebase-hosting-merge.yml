@@ -15,9 +15,9 @@ jobs:
       - name: Clear npm cache
         run: npm cache clean -f
 
-      # Install dependencies with --legacy-peer-deps
+      # Install dependencies and update lock file
       - name: Install Dependencies
-        run: npm ci --legacy-peer-deps
+        run: npm install
 
       # Build the project
       - name: Build
