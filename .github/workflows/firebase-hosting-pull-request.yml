@@ -9,7 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
+      # Set CI=false for this job
+      - name: Set CI environment variable
+        run: echo "CI=false" >> $GITHUB_ENV
+
       - run: npm ci && npm run build
+
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
