@@ -46,7 +46,7 @@ export const incrementInteractionRecipe = (recipeId: string): ApiAction<UpdatedR
     data: {
       recipeId
     },
-    // baseUrl: 'localhost:4000',;
+    // baseUrl: '34.125.222.127:4000',;
     onSuccess: [
       (data): any =>
       {

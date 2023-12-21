@@ -8,7 +8,8 @@ import { getJWTFromLocalStorage } from "../utils/common";
 export const getRecipes = async (userId: string, currentPage: number = 1, pageSize = PAGE_SIZE): Promise<any> => {
   try {
     //TODO: change the paganetion logic!
-    const res = await axios.get(`http://localhost:4000/recipe/getRecipes?userId=${ userId }&currentPage=${ currentPage }&pageSize=${ pageSize }`);
+    //amir
+    const res = await axios.get(`http://34.125.222.127:4000/recipe/getRecipes?userId=${ userId }&currentPage=${ currentPage }&pageSize=${ pageSize }`);
     return {
       recipes: extendRecipeWithUserInfo(res.data),
       totalRecipeCount: res.data.totalRecipeCount
@@ -22,7 +23,7 @@ export const getRecipes = async (userId: string, currentPage: number = 1, pageSi
 export const insertNewRecipesToDB = async (recipe: IRecipe) => {
   if (recipe) {
     try {
-      const res = await axios.post(`http://localhost:4000/recipe/createNewRecipe`, {...recipe},{
+      const res = await axios.post(`http://34.125.222.127:4000/recipe/createNewRecipe`, {...recipe},{
         headers: {
           'Authorization': `Bearer ${ getJWTFromLocalStorage() }`
         }
@@ -50,7 +51,7 @@ export const insertNewImagesToDB = async (image: File) => {
   try {
     const formData = new FormData();
     formData.append("image", image);
-    const res = await axios.post(`http://localhost:4000/uploadImage`, formData,
+    const res = await axios.post(`http://34.125.222.127:4000/uploadImage`, formData,
       {
         headers: {
           'Content-Type': 'multipart/form-data',
@@ -66,7 +67,7 @@ export const insertNewImagesToDB = async (image: File) => {
 export const getTotalNumberOfRecipesForPagination = async (userId: string) => {
   if (userId) {
     try {
-      const res = await axios.get(`http://localhost:4000/recipe/countUserRecipes`, {
+      const res = await axios.get(`http://34.125.222.127:4000/recipe/countUserRecipes`, {
         params: {
           userId
         }
@@ -81,7 +82,7 @@ export const getTotalNumberOfRecipesForPagination = async (userId: string) => {
 export const getUserRecipeLinks = async (userId: string, currentPage: number = 1, pageSize: number = 20) => {
   if (userId) {
     try {
-      const res = await axios.get(`http://localhost:4000/recipe/getUserRecipeLinks?userId=${ userId }&currentPage=${ currentPage }&pageSize=${ pageSize }`,
+      const res = await axios.get(`http://34.125.222.127:4000/recipe/getUserRecipeLinks?userId=${ userId }&currentPage=${ currentPage }&pageSize=${ pageSize }`,
         {
           headers: {
             'Authorization': `Bearer ${ getJWTFromLocalStorage() }`
@@ -96,7 +97,7 @@ export const getUserRecipeLinks = async (userId: string, currentPage: number = 1
 export const setUserRecipeLink = async (recipeLink: IRecipeLink) => {
   if (recipeLink) {
     try {
-      const res = await axios.post(`http://localhost:4000/recipe/setUserRecipeLink`, {...recipeLink},
+      const res = await axios.post(`http://34.125.222.127:4000/recipe/setUserRecipeLink`, {...recipeLink},
         {
           headers: {
             'Authorization': `Bearer ${ getJWTFromLocalStorage() }`
@@ -110,7 +111,7 @@ export const setUserRecipeLink = async (recipeLink: IRecipeLink) => {
 }
 
 export const fetchRecipesLogIn = async (dispatch: any, currentPage: number = 1) => {
-  const res = await axios.get(`http://localhost:4000/recipe/getRecipes`,
+  const res = await axios.get(`http://34.125.222.127:4000/recipe/getRecipes`,
     {params: {currentPage: currentPage, pageSize: PAGE_SIZE, shouldGetTotalRecipesCount: true}})
   const recipeWithUserInfo = extendRecipeWithUserInfo(res.data)
   dispatch({
@@ -125,7 +126,7 @@ export const fetchRecipesLogIn = async (dispatch: any, currentPage: number = 1) 
 
 export const getRecipesById = async (recipeId: string): Promise<any> => {
   try {
-    const res = await axios.get(`http://localhost:4000/recipe/getRecipes?id=${ recipeId }`);
+    const res = await axios.get(`http://34.125.222.127:4000/recipe/getRecipes?id=${ recipeId }`);
     return res.data;
   } catch (e: any) {
     console.log("error", e)
@@ -133,7 +134,7 @@ export const getRecipesById = async (recipeId: string): Promise<any> => {
 }
 export const incrementInteractionRecipeCount = async (recipeId: string): Promise<any> => {
   try {
-    return await axios.post(`http://localhost:4000/recipe/incrementInteractionRecipeCount`, {recipeId: recipeId},
+    return await axios.post(`http://34.125.222.127:4000/recipe/incrementInteractionRecipeCount`, {recipeId: recipeId},
       {
         headers: {
           'Authorization': `Bearer ${ getJWTFromLocalStorage() }`
@@ -146,7 +147,7 @@ export const incrementInteractionRecipeCount = async (recipeId: string): Promise
 
 
 export const fetchSearchRequest = async (searchQuery: string, isPrivate: boolean, userProfileId: string, dispatch: any) => {
-  const response = await axios.get(`http://localhost:4000/recipe/searchRecipe`,
+  const response = await axios.get(`http://34.125.222.127:4000/recipe/searchRecipe`,
     {
       params: {
         searchQuery: searchQuery,
