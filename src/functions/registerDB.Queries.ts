@@ -34,7 +34,7 @@ export const registerUserAndGetAllRecipes = async (userData: any) => {
 
 export const createNewUser = async (userData: any): Promise<any> => {
   try {
-    return await axios.post(`http://my-recipes-serverstore.store/user/create`,
+    return await axios.post(`my-recipes-serverstore.store/user/create`,
       {...userData}, {
       // headers: {
       //   'Authorization': `Bearer ${ getJWTFromLocalStorage() }`
@@ -47,7 +47,7 @@ export const createNewUser = async (userData: any): Promise<any> => {
 
 export const setUserLogOut = async (userAuthId: any): Promise<any> => {
   try {
-    return await axios.post(`http://my-recipes-serverstore.store/user/isUserActivate`,{userAuthId, isLogIn: false},
+    return await axios.post(`my-recipes-serverstore.store/user/isUserActivate`,{userAuthId, isLogIn: false},
       {
         headers: {
           'Authorization': `Bearer ${ getJWTFromLocalStorage() }`
@@ -61,7 +61,7 @@ export const setUserLogOut = async (userAuthId: any): Promise<any> => {
 
 export const getUserDataFromDBIfExist = async (userAuthData: any): Promise<any> => {
   try {
-    const res = await axios.get(`http://my-recipes-serverstore.store/user/getUserByAuthId?userAuthId=${ userAuthData.uid }`,
+    const res = await axios.get(`my-recipes-serverstore.store/user/getUserByAuthId?userAuthId=${ userAuthData.uid }`,
       {
         headers: {
           'Authorization': `Bearer ${ getJWTFromLocalStorage() }`
