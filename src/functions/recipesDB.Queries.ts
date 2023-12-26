@@ -1,9 +1,8 @@
-import axios from "axios";
 import { IRecipe } from "../utils/interfaces";
 import { PAGE_SIZE } from "../utils/constants";
 import { IRecipeLink } from "../components/Pages/MyLinkdPage";
 import { getJWTFromLocalStorage } from "../utils/common";
-import api from "../../api"
+import api from "../api"
 
 export const getRecipes = async (userId: string, currentPage: number = 1, pageSize = PAGE_SIZE): Promise<any> => {
   try {

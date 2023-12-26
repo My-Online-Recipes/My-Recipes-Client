@@ -1,5 +1,5 @@
 
-import api from "../../api"
+import api from "../api"
 import { getRecipes, getUserRecipeLinks } from "./recipesDB.Queries";
 import { JWT } from "../utils/constants";
 import { getJWTFromLocalStorage } from "../utils/common";
