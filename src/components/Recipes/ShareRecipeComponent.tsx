@@ -10,7 +10,7 @@ interface Props {
   recipe: IRecipe
 }
 
-export const URL_LINK = "http://localhost:3000/recipePage?id="
+export const URL_LINK = "https://cooking-recipes-9bea3.web.app/recipePage?id="
 
 export function creatLinkUrlFromRecipeId(recipeId: string | undefined) {
   return URL_LINK + recipeId;
