@@ -168,10 +168,17 @@ export const fetchSearchRequest = async (searchQuery: string, isPrivate: boolean
 ;
 
 export const extendRecipeWithUserInfo = (recipeAndUserInfo: any) => {
-  return recipeAndUserInfo.recipes.map((recipeWithUserInfo: any) => {
-    return {
-      ...recipeWithUserInfo.recipe,
-      recipeCreatorInfo: {...recipeWithUserInfo.userData[0]}
-    }
-  })
+  // Check if recipeAndUserInfo.recipes is defined and not null
+  if (recipeAndUserInfo.recipes) {
+    return recipeAndUserInfo.recipes.map((recipeWithUserInfo: any) => {
+      return {
+        ...recipeWithUserInfo.recipe,
+        recipeCreatorInfo: {...recipeWithUserInfo.userData[0]}
+      }
+    });
+  } else {
+    // Handle the case when recipes is undefined or null
+    console.error("Recipes are undefined or null");
+    return [];
+  }
 }
