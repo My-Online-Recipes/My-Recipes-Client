@@ -25,7 +25,7 @@ export const RecipeLinkTicket: React.FC<Props> = ({recipeLink, index, colorIndex
       {recipeLink && <RecipeInfoRightSideWrapper colorIndex={colorIndex}>
           <RecipeInfoWrapper>
             <RecipeLinkNameStyled>
-              {recipeLink.recipeLinkName.toUpperCase() }
+              {recipeLink && recipeLink.recipeLinkName.toUpperCase() }
             </RecipeLinkNameStyled>
             <div>
               {recipeLink.recipeLinkDescription }
