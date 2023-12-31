@@ -22,23 +22,21 @@ export const RecipeLinkTicket: React.FC<Props> = ({recipeLink, index, colorIndex
       <CircleNumberStyled>
         <RecipeNumberStyled>{ index }</RecipeNumberStyled>
       </CircleNumberStyled>
-      <RecipeInfoRightSideWrapper colorIndex={colorIndex}>
+      {recipeLink && <RecipeInfoRightSideWrapper colorIndex={colorIndex}>
           <RecipeInfoWrapper>
             <RecipeLinkNameStyled>
-              { recipeLink.recipeLinkName.toUpperCase() }
+              {recipeLink.recipeLinkName.toUpperCase() }
             </RecipeLinkNameStyled>
             <div>
-              { recipeLink.recipeLinkDescription }
+              {recipeLink.recipeLinkDescription }
             </div>
           </RecipeInfoWrapper>
           <RecipeUrlLinkWrapperStyled>
-            <a href={ recipeLink.recipeLinkUrl } target="_blank" rel="noopener noreferrer">
+            <a href={recipeLink.recipeLinkUrl } target="_blank" rel="noopener noreferrer">
               <ShowMoreButtonStyled>Open Link</ShowMoreButtonStyled>
             </a>
           </RecipeUrlLinkWrapperStyled>
-      </RecipeInfoRightSideWrapper>
-      {/*<Pentagon></Pentagon>*/ }
-
+      </RecipeInfoRightSideWrapper>}
     </RecipeLinkTicketWrapperStyled>
   )
 }
